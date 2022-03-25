@@ -21,12 +21,9 @@ class LaboratorioExa{
     {
         global $connect;
         $sql= "INSERT INTO laboratorioexa VALUES('$this->codigo','$this->descripcion',
-                '$this->fechaLaboratorio','$this->nombreArchivo','$this->tipoFormacion',
-                '$this->idCentro','$this->idCentro')";
+                '$this->fechaLaboratorio','$this->nombreArchivo')";
         return $connect->query($sql);
     }
-    
-
 
     public static function read()
     {
@@ -52,20 +49,22 @@ class LaboratorioExa{
     public function modifylaboratorioexa($valor)
     {
         global $connect;
-        $sql= "UPDATE laboratorioexa SET codigo = $this->codigo ,
-         descripcion = $this->descripcion, fechaLaboratorio = $this->fechaLaboratorio,
-         nombreArchivo = $this->nombreArchivo, tipoFormacion = $this->tipoFormacion,
-         capacidad = $this->capacidad, idCentro = $this->idCentro
-          WHERE codigo = $valor";
+        $sql= "UPDATE laboratorioexa 
+                SET     codigo = $this->codigo ,
+                        descripcion = $this->descripcion, 
+                        fechaLaboratorio = $this->fechaLaboratorio,
+                        nombreArchivo = $this->nombreArchivo                        
+                WHERE codigo = $valor";
         return $connect->query($sql);
     }
 
     public static function arraylaboratorioexa()
     {
-       return ['codigo' => $_POST['codigo'], 'descripcion' => $_POST['descripcion'],
-            'fechaLaboratorio' => $_POST['fechaLaboratorio'], 'nombreArchivo' => $_POST['nombreArchivo'],
-            'tipoFormacion' => $_POST['tipoFormacion'],'capacidad' => $_POST['capacidad'],
-            'idCentro' => $_POST['idCentro']] ;
+       return [ 'codigo' => $_POST['codigo'], 
+                'descripcion' => $_POST['descripcion'],
+                'fechaLaboratorio' => $_POST['fechaLaboratorio'], 
+                'nombreArchivo' => $_POST['nombreArchivo']
+                ] ; 
     }
 }
 

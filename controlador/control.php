@@ -12,17 +12,17 @@
         switch ($_POST['exa']) 
         {
             case 'create': 
-                $exa1 = new Ins(Ins::arrayIns());
+                $exa1 = new LaboratorioExa(LaboratorioExa::arrayLaboratorioExa());
                 $exa1->create(); 
                 break;
 
             case 'update':
-                $exa2 = new Ins(Ins::arrayIns());
-                $exa2->modifyIns($_POST['idAntes']);
+                $exa2 = new LaboratorioExa(LaboratorioExa::arrayLaboratorioExa());
+                $exa2->modifyLaboratorioExa($_POST['idAntes']);
                 break;
 
             case 'delete':
-                Ins::delete($_POST['index']);
+                LaboratorioExa::delete($_POST['index']);
                 break;
             
             default:
