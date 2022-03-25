@@ -3,25 +3,25 @@ require_once'connect.php';
 
 class LaboratorioExa{
 
- private $codigo;
- private $descripcion;
- private $fechaLaboratorio;
- private $nombreArchivo; 
+ private $Idlaboratorio;
+ private $descripcionlab;
+ private $fechalab;
+ private $nombrearchivo; 
 
     function __construct($arg)
     {
-        $this->codigo = $arg['codigo'];
-        $this->descripcion = $arg['descripcion'];
-        $this->fechaLaboratorio = $arg['fechaLaboratorio'];
-        $this->nombreArchivo = $arg['nombreArchivo'];
+        $this->Idlaboratorio = $arg['Idlaboratorio'];
+        $this->descripcionlab = $arg['descripcionlab'];
+        $this->fechalab = $arg['fechalab'];
+        $this->nombrearchivo = $arg['nombrearchivo'];
     }
 
 
     public function create()
     {
         global $connect;
-        $sql= "INSERT INTO laboratorioexa VALUES('$this->codigo','$this->descripcion',
-                '$this->fechaLaboratorio','$this->nombreArchivo')";
+        $sql= "INSERT INTO laboratorioexa VALUES('$this->Idlaboratorio','$this->fechalab','$this->descripcionlab',
+                '$this->nombrearchivo')";
         return $connect->query($sql);
     }
 
@@ -35,14 +35,14 @@ class LaboratorioExa{
     public static function update($valor)
     {
         global $connect;
-        $sql="SELECT * FROM laboratorioexa WHERE codigo = $valor";
+        $sql="SELECT * FROM laboratorioexa WHERE Idlaboratorio = $valor";
         return $result = $connect->query($sql);
     }
 
-    public static function delete($codigo)
+    public static function delete($Idlaboratorio)
     {
         global $connect;
-        $sql=" DELETE FROM laboratorioexa WHERE codigo = $codigo";
+        $sql=" DELETE FROM laboratorioexa WHERE Idlaboratorio = $Idlaboratorio";
         return $connect->query($sql);
     }
 
@@ -50,20 +50,20 @@ class LaboratorioExa{
     {
         global $connect;
         $sql= "UPDATE laboratorioexa 
-                SET     codigo = $this->codigo ,
-                        descripcion = $this->descripcion, 
-                        fechaLaboratorio = $this->fechaLaboratorio,
-                        nombreArchivo = $this->nombreArchivo                        
-                WHERE codigo = $valor";
+                SET     Idlaboratorio = $this->Idlaboratorio ,
+                        descripcionlab = $this->descripcionlab, 
+                        fechalab = $this->fechalab,
+                        nombrearchivo = $this->nombrearchivo                        
+                WHERE Idlaboratorio = $valor";
         return $connect->query($sql);
     }
 
     public static function arraylaboratorioexa()
     {
-       return [ 'codigo' => $_POST['codigo'], 
-                'descripcion' => $_POST['descripcion'],
-                'fechaLaboratorio' => $_POST['fechaLaboratorio'], 
-                'nombreArchivo' => $_POST['nombreArchivo']
+       return [ 'Idlaboratorio' => $_POST['Idlaboratorio'], 
+                'fechalab' => $_POST['fechalab'], 
+                'descripcionlab' => $_POST['descripcionlab'],
+                'nombrearchivo' => $_POST['nombrearchivo']
                 ] ; 
     }
 }

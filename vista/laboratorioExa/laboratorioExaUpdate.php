@@ -1,7 +1,7 @@
 <?php
-require_once'../../../model/ambiente.php';
+ require_once'../../modelo/laboratorioExa.php';
 
-$r = Ambiente::update($_POST['index']);
+$r = LaboratorioExa::update($_POST['index']);
 $llenar = $r->fetch_assoc();
 
 ?>
@@ -12,40 +12,30 @@ $llenar = $r->fetch_assoc();
 
 
 <section>    
-  <form action="../../../controller/controlIns.php" method="post">
+  <form action="../../controlador/control.php" method="post">
     <fieldset>
       <legend>Update</legend>
   
-      <label  for="idAmbiente">id del Ambiente</label>
-      <input required type="number" id="idAmbiente"  
-              title="Ingrese el codigo"  value=' <?php echo $_POST['idAmbiente'] ?> ' name="idAmbiente"  >
+      <label  for="idAmbiente"> codigo</label>
+      <input required type="text" id="Idlaboratorio"  
+              title="Ingrese el codigo"  value=' <?php echo $llenar['Idlaboratorio'] ?> ' name="Idlaboratorio"  >
       
-      <label  for="numeroAmbiente">numero del Ambiente</label>
-      <input required type="number" id="numeroAmbiente"   
-              title="Ingrese el numero del Ambiente"  value=' <?php echo $_POST['numeroAmbiente'] ?> ' name="numeroAmbiente" >
+      <label  for="descripcionlab">Descripcion</label>
+      <input required type="text" id="descripcionlab"   
+              title="Ingrese las descripcion"  value=' <?php echo $llenar['descripcionlab'] ?> ' name="descripcionlab" >
       
-      <label  for="descripcionAmbiente">descripcion del Ambiente</label>
-      <input required type="text" id="descripcionAmbiente"   
-              title="Ingrese la descripcion del Ambiente"  value=' <?php echo $_POST['descripcionAmbiente'] ?> ' name="descripcionAmbiente" >
+      <label  for="fechalab">fecha laboratorio</label>
+      <input required type="text" id="fechalab"   
+              title="Ingrese la fecha"  value=' <?php echo $llenar['fechalab'] ?> ' name="fechalab" >
       
-      <label  for="horaUso">hora de Uso</label> 
-      <input required type="text" id="horaUso"   
-              title=" Ingrese la hora de Uso"  value=' <?php echo $_POST['horaUso'] ?> ' name="horaUso" >
       
-      <label  for="tipoFormacion">tipo Formacion</label>
-      <input required type="text" id="tipoFormacion"   
-              title="Ingrese el tipo Formacion"  value=' <?php echo $_POST['tipoFormacion'] ?> ' name="tipoFormacion"  >
+      <label  for="nombrearchivo">nombre del archivo</label>
+      <input required type="text" id="nombrearchivo"   
+              title="Ingrese el archivo"  value=' <?php echo $llenar['nombrearchivo'] ?> ' name="nombrearchivo"  >
       
-      <label  for="capacidad">capacidad</label>
-      <input required type="text" id="capacidad"   
-              title="Ingrese la capacidad"  value=' <?php echo $_POST['capacidad'] ?> ' name="capacidad">
-      
-      <label  for="idCentro">id del Centro</label>
-      <input required type="text" id="idCentro"   
-              title="Ingrese el id Centro"  value=' <?php echo $_POST['idCentro'] ?> ' name="idCentro" >
       <input type="hidden"  name="idAntes"
-       value="<?php echo $llenar['idAmbiente'] ?>" >
-      <input type="hidden"  name ="ambiente" value="update">
+       value="<?php echo $llenar['Idlaboratorio'] ?>" >
+      <input type="hidden"  name ="exa" value="update">
 
       <button>enviar</button>
     </fieldset>

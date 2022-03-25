@@ -1,81 +1,71 @@
 <?php
-  require_once("function.php");
-  $consultaAmbiente = consultaAmbiente();
+  require_once'../../modelo/laboratorioExa.php';
+  $contenido = LaboratorioExa::read();
 ?>
 
-<head>
-    <link rel="stylesheet" type="text/css" href="  ">
-</head>
 
-<section class="" >
+<div >
+    <form action="../../controlador/control.php" method="post">
+        <label  for="">Codigo</label>
+        <input type="text" name="Idlaboratorio" alt="">
+        <label  for="">Descripcion</label>
+        <input type="text" name="descripcionlab" id="descripcionlab">
+        <label  for="">fecha laboratorio</label>
+        <input type="text" name="fechalab" id="">
+        <label  for="">nombre del archivo</label>
+        <input type="text" name="nombrearchivo" id="">
+        <input required type="hidden"  name="exa" value="create">
 
-  <a class=" " href="crudAmbiente.php">Crear</a>
+      <button>enviar</button>
+        
+    </form>
+</div>
 
-  <form action="ambienteBuscar.php" method="post">
+<!-- TABLA CON CONTENIDO
+------------------------------------------------------>
 
-    <select name="tipoAmbiente" id="">
-      <option value="idAmbiente">codigo</option>
-      <option value="numeroAmbiente">nombre</option>
-      <option value="descripcionAmbiente">descripcion</option>
-      <option value="horaUso">horaUso</option>
-      <option value="tipoFormacion">formacion</option>
-      <option value="capacidad">capacidad</option>
-      <option value="idCentro">centro</option>
-    </select>
+<section>
+  <fieldset>
+    <legend>Read Examenes laboratorio</legend>
+    <table  >
+      <tr >
+        <th>Codigo</th>
+        <th>Descripcion</th>
+        <th>fecha laboratorio</th>
+        <th>nombre del archivo</th>
+      </tr>
 
-    <input type="text" name="busquedad" id="">
+        <?php
+          while ($valor = $contenido -> fetch_assoc()) {
+        ?>
 
-    <input type="hidden" name="action" value="buscarAmbiente">
-    
-    <button>buscar</button>
-  </form>
-</section>
+      <tr>
+        <td><?php echo $valor['Idlaboratorio']; ?> </td>
+        <td><?php echo $valor['fechalab']; ?> </td>
+        <td><?php echo $valor['descripcionlab']; ?> </td>
+        <td><?php echo $valor['nombrearchivo']; ?> </td>
+        <td>
 
-<section class="">
+          <form action="../../controlador/control.php" method="post">
+            <input type="hidden" name="exa" value="delete">
+            <input type="hidden" name="index" value="<?php echo $valor['Idlaboratorio']; ?>">
+            <button>borrar</button>
+          </form>
 
-  <table class="">
-
-    <tr>
-      <th class=" ">Codigo</th>
-      <th class=" ">numero</th>
-      <th class=" ">descripcion</th>
-      <th class=" "> horaUso</th>
-      <th class=" "> tipoFormacion</th>
-      <th class=" "> capacidad</th>
-      <th class=" "> idCentro</th>
+          <form action="laboratorioExaUpdate.php" method="post">
+            <input type="hidden" name="exa" value="update">
+            <input type="hidden" name="index" value="<?php echo $valor['Idlaboratorio']; ?>">
+            <button>modificar</button>  
+          </form>
           
-          
-    </tr>
 
-    <?php
-      while ($valorf = $consultaAmbiente -> fetch_assoc()) {
-    ?>
+        </td>
+      </tr>
 
-    <tr>
-      <td><?php echo $valorf['idAmbiente']; ?> </td>
-      <td><?php echo $valorf['numeroAmbiente']; ?> </td>
-      <td><?php echo $valorf['descripcionAmbiente']; ?> </td>
-      <td><?php echo $valorf['horaUso']; ?> </td>
-      <td><?php echo $valorf['tipoFormacion']; ?> </td>
-      <td><?php echo $valorf['capacidad']; ?> </td>
-      <td><?php echo $valorf['idCompetencia']; ?> </td>
+        <?php  
+          }
+        ?>
 
-      <td>
-          <a href="">eliminar</a>
-          <a href="crudAmbiente.php?o=m
-              &idAmbiente=<?php echo $valorf['idAmbiente']?>
-              &numeroAmbiente=<?php echo $valorf['numeroAmbiente']?>
-              &descripcionAmbiente=<?php echo $valorf['descripcionAmbiente']?>
-              &horaUso=<?php echo $valorf['horaUso']?>
-              &tipoFormacion=<?php echo $valorf['tipoFormacion']?>
-              &capacidad=<?php echo $valorf['capacidad']?>
-              &idCompetencia=<?php echo $valorf['idCompetencia']?>
-              ">modificar</a>
-      </td>
-    </tr>
-
-    <?php  
-      }
-    ?>  
-  </table>
+    </table>
+  </fieldset>
 </section>
