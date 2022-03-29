@@ -5,7 +5,7 @@
 
 
 <div >
-    <form action="../../controlador/control.php" method="post">
+    <form action="../../controlador/laboratorioExaControlador.php" method="post">
         <label  for="">Codigo</label>
         <input type="text" name="Idlaboratorio" alt="">
         <label  for="">Descripcion</label>
@@ -46,7 +46,7 @@
         <td><?php echo $valor['nombrearchivo']; ?> </td>
         <td>
 
-          <form action="../../controlador/control.php" method="post">
+          <form action="../../controlador/laboratorioExaControlador.php" method="post">
             <input type="hidden" name="exa" value="delete">
             <input type="hidden" name="index" value="<?php echo $valor['Idlaboratorio']; ?>">
             <button>borrar</button>

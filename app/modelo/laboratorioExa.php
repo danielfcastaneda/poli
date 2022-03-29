@@ -50,10 +50,10 @@ class LaboratorioExa{
     {
         global $connect;
         $sql= "UPDATE laboratorioexa 
-                SET     Idlaboratorio = $this->Idlaboratorio ,
-                        descripcionlab = $this->descripcionlab, 
-                        fechalab = $this->fechalab,
-                        nombrearchivo = $this->nombrearchivo                        
+                SET     Idlaboratorio = '$this->Idlaboratorio',
+                        descripcionlab = '$this->descripcionlab', 
+                        fechalab = '$this->fechalab',
+                        nombrearchivo = '$this->nombrearchivo'                        
                 WHERE Idlaboratorio = $valor";
         return $connect->query($sql);
     }
