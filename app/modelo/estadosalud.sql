@@ -109,15 +109,15 @@ CREATE TABLE `laboratorioexa` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `seguimientocontrol`
+-- Estructura de tabla para la tabla `seguimientoCondiciones`
 --
 
-CREATE TABLE `seguimientocontrol` (
-  `idseguimientocontrol` int(11) NOT NULL,
-  `Tipos` varchar(20) COLLATE utf8_spanish_ci NOT NULL,
-  `Fechas` date NOT NULL,
-  `Diagnosticos` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
-  `Tratamientos` varchar(50) COLLATE utf8_spanish_ci NOT NULL
+CREATE TABLE `seguimientocondiciones` (
+  `IdSeguimiento` int(11) NOT NULL,
+  `Tipo` varchar(20) COLLATE utf8_spanish_ci NOT NULL,
+  `Fecha` date NOT NULL,
+  `Diagnostico` varchar(4000) COLLATE utf8_spanish_ci NOT NULL,
+  `Tratamiento` varchar(4000) COLLATE utf8_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 -- --------------------------------------------------------
@@ -194,10 +194,10 @@ ALTER TABLE `laboratorioexa`
   ADD PRIMARY KEY (`Idlaboratorio`);
 
 --
--- Indices de la tabla `seguimientocontrol`
+-- Indices de la tabla `seguimientoCondiciones`
 --
-ALTER TABLE `seguimientocontrol`
-  ADD PRIMARY KEY (`idseguimientocontrol`);
+ALTER TABLE `seguimientoCondiciones`
+  ADD PRIMARY KEY (`idseguimiento`);
 
 --
 -- Indices de la tabla `usuarios`
