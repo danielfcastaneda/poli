@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../assets/css/dashboard.css">
+
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+  <title>Quovoo</title>
+</head>
+
+<body>
+  <!-- Sidebar -->
+  <div class="sidebar" id="sidebar">
+    <!-- Header Section -->
+    <div class="sidebar__header">
+      <div class="logo">
+        <i class="bi bi-x-diamond-fill logo-icon"></i>
+        <div class="logo-name">Quovoo</div>
+      </div>
+      <i class="bi bi-list" id="btn"></i>
+    </div>
+    <div class="sidebar__body">
+      <ul class="sidebar__list">
+        <li>
+            <i class="bi bi-search"></i>
+            <input type="text" placeholder="Buscar...">
+        </li>
+        <li>
+          <a href="#">
+            <i class="bi bi-person-plus-fill"></i>
+            <span class="list-name">Beneficiarios</span>
+          </a>
+          <span class="tooltip">Beneficiarios</span>
+        </li>
+        <li>
+          <a href="#">
+            <i class="bi bi-person-plus-fill"></i>
+            <span class="list-name">Condición de salud</span>
+          </a>
+          <span class="tooltip">Condición de salud</span>
+        </li>
+        <li>
+          <a href="#">
+            <i class="bi bi-person-plus-fill"></i>
+            <span class="list-name">Control</span>
+          </a>
+          <span class="tooltip">Control</span>
+        </li>
+        <li>
+          <a href="#">
+            <i class="bi bi-person-plus-fill"></i>
+            <span class="list-name">Entrenamiento</span>
+          </a>
+          <span class="tooltip">Entrenamiento</span>
+        </li>
+        <li>
+          <a href="#">
+            <i class="bi bi-person-plus-fill"></i>
+            <span class="list-name">Indicadores de salud</span>
+          </a>
+          <span class="tooltip">Indicadores de salud</span>
+        </li>
+        <li>
+          <a href="#">
+            <i class="bi bi-person-plus-fill"></i>
+            <span class="list-name">Laboratorio</span>
+          </a>
+          <span class="tooltip">Laboratorio</span>
+        </li>
+        <li>
+          <a href="#">
+            <i class="bi bi-person-plus-fill"></i>
+            <span class="list-name">Seguimiento</span>
+          </a>
+          <span class="tooltip">Seguimiento</span>
+        </li>
+        <li>
+          <a href="#">
+            <i class="bi bi-person-plus-fill"></i>
+            <span class="list-name">Vacunas</span>
+          </a>
+          <span class="tooltip">Vacunas</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="content">
+    <div class="text">Home Content</div>
+  </div>
+
+  <script>
+    const btn = document.querySelector('#btn');
+    const sidebar = document.querySelector('#sidebar');
+    const search_btn = document.querySelector('.bi-search');
+    
+    btn.onclick = function() {
+      sidebar.classList.toggle('active');
+    }
+
+    search_btn.onclick = function() {
+      sidebar.classList.toggle('active');
+    }
+  </script>
+</body>
+
+</html>
