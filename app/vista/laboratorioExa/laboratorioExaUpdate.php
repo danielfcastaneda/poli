@@ -12,7 +12,7 @@ $llenar = $r->fetch_assoc();
 
 
 <section>    
-  <form action="../../controlador/control.php" method="post">
+  <form action="../../controlador/laboratorioExaControlador.php" method="post">
     <fieldset>
       <legend>Update</legend>
   
