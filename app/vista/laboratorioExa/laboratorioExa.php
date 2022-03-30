@@ -1,31 +1,136 @@
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+  @import url('https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css');
+
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  padding-top: 45px;
+}
+
+.box-1 {
+  width: 100%;
+  height: auto;
+  padding: 10px 25px;
+}
+
+.table-section {
+}
+</style>
+
 <?php
   require_once'../../modelo/laboratorioExa.php';
   $contenido = LaboratorioExa::read();
-?>
+  ?>
 
 
-<div >
-    <form action="../../controlador/control.php" method="post">
-        <label  for="">Codigo</label>
-        <input type="text" name="Idlaboratorio" alt="">
-        <label  for="">Descripcion</label>
-        <input type="text" name="descripcionlab" id="descripcionlab">
-        <label  for="">fecha laboratorio</label>
-        <input type="text" name="fechalab" id="">
-        <label  for="">nombre del archivo</label>
-        <input type="text" name="nombrearchivo" id="">
-        <input required type="hidden"  name="exa" value="create">
+<div class="box-1">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <form action="../../controlador/control.php" method="POST">
+          <div class="row">
+            <div class="col-5">
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Nombre del archivo</label>
+                <input type="text" class="form-control" id="">
+              </div>    
 
-      <button>enviar</button>
-        
-    </form>
+            </div>
+            <div class="col-5">
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Fecha del laboratorio</label>
+                <input type="date" class="form-control" id="exampleInputEmail1">
+              </div>    
+            </div>
+            <div class="col-2">
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Código</label>
+                <input type="text" class="form-control" id="exampleInputEmail1">
+              </div>    
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <div class="mb-3">
+                <label for="descripcionlab" class="form-label">Descripción</label>
+                <textarea class="form-control" id="descripcionlab" rows="3"></textarea>
+              </div>    
+
+            </div>
+          </div>
+        <div class="row justify-content-center">
+          <div class="col-4">
+            <button class="btn btn-success w-100">Enviar</button>
+          </div>
+        </div>
+        <!-- <label  for="">Codigo</label>
+            <input type="text" name="Idlaboratorio" alt="">
+            <label  for="">Descripcion</label>
+            <input type="text" name="descripcionlab" id="descripcionlab">
+            <label  for="">fecha laboratorio</label>
+            <input type="text" name="fechalab" id="">
+            <label  for="">nombre del archivo</label>
+            <input type="text" name="nombrearchivo" id="">
+            <input required type="hidden"  name="exa" value="create">
+    
+          <button>enviar</button> -->
+            
+        </form>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- TABLA CON CONTENIDO
 ------------------------------------------------------>
 
-<section>
-  <fieldset>
+<section class="table-section mt-4">
+  <div class="container">
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Código</th>
+          <th scope="col">Nombre Archivo</th>
+          <th scope="col">Fecha Laboratorio</th>
+          <th scope="col">Descripción</th>
+        </tr>
+      </thead>
+      <?php
+          while ($valor = $contenido -> fetch_assoc()) {
+        ?>
+      <tbody>
+        <tr>
+        <td scope="row"><?php echo $valor['Idlaboratorio']; ?> </td>
+        <td><?php echo $valor['fechalab']; ?> </td>
+        <td><?php echo $valor['descripcionlab']; ?> </td>
+        <td><?php echo $valor['nombrearchivo']; ?> </td>
+        </tr>
+        <tr>
+          <th scope="row">2</th>
+          <td>Jacob</td>
+          <td>Thornton</td>
+          <td>@fat</td>
+        </tr>
+        <tr>
+          <th scope="row">3</th>
+          <td colspan="2">Larry the Bird</td>
+          <td>@twitter</td>
+        </tr>
+      </tbody>
+      <?php  
+          }
+        ?>
+    </table>
+
+  </div>
+  <!-- <fieldset>
     <legend>Read Examenes laboratorio</legend>
     <table  >
       <tr >
@@ -67,5 +172,7 @@
         ?>
 
     </table>
-  </fieldset>
+  </fieldset> -->
 </section>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
