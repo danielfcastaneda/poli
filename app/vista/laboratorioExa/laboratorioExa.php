@@ -94,25 +94,25 @@ body {
   <div class="container">
     <div class="row">
       <div class="col-12">
-        <form action="../../controlador/control.php" method="POST">
+        <form action="../../controlador/laboratorioExaControlador.php" method="post">
           <div class="row">
             <div class="col-5">
               <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Nombre del archivo</label>
-                <input type="text" class="form-control" id="">
+                <input type="text" class="form-control" name="nombrearchivo" id="">
               </div>    
 
             </div>
             <div class="col-5">
               <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Fecha del laboratorio</label>
-                <input type="date" class="form-control" id="exampleInputEmail1">
+                <input type="date" class="form-control" name="fechalab" id="exampleInputEmail1">
               </div>    
             </div>
             <div class="col-2">
               <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Código</label>
-                <input type="text" class="form-control" id="exampleInputEmail1">
+                <input type="text" class="form-control" name="Idlaboratorio" id="exampleInputEmail1">
               </div>    
             </div>
           </div>
@@ -120,7 +120,7 @@ body {
             <div class="col-12">
               <div class="mb-3">
                 <label for="descripcionlab" class="form-label">Descripción</label>
-                <textarea class="form-control" id="descripcionlab" rows="3"></textarea>
+                <textarea class="form-control" name="descripcionlab" id="descripcionlab" rows="3"></textarea>
               </div>    
 
             </div>
