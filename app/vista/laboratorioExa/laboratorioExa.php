@@ -107,7 +107,9 @@ body {
               <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Fecha del laboratorio</label>
                 <input type="date" class="form-control" name="fechalab" id="exampleInputEmail1">
-              </div>    
+              </div>
+              
+              
             </div>
             <div class="col-2">
               <div class="mb-3">

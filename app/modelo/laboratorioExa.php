@@ -22,6 +22,8 @@ class LaboratorioExa{
         global $connect;
         $sql= "INSERT INTO laboratorioexa VALUES('$this->Idlaboratorio','$this->fechalab','$this->descripcionlab',
                 '$this->nombrearchivo')";
+
+        header('Location:../app/vista/laboratorioExa.php');
         return $connect->query($sql);
     }
 
