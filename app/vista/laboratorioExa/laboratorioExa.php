@@ -2,6 +2,7 @@
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
   @import url('https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css');
+  @import url('https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css');
 
 /* Global Styles */
 * {
@@ -74,17 +75,13 @@ body {
           </div>
         <div class="row justify-content-center">
           <div class="col-4">
-            <button class="btn btn-success w-100">Enviar</button>
+            <button class="btn btn-success w-100">Actualizar</button>
           </div>
         </div>
         </form>
       </div>
     </div>
   </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
       </div>
     </div>
   </div>
@@ -101,7 +98,6 @@ body {
                 <label for="exampleInputEmail1" class="form-label">Nombre del archivo</label>
                 <input type="text" class="form-control" name="nombrearchivo" id="">
               </div>    
-
             </div>
             <div class="col-5">
               <div class="mb-3">
@@ -130,18 +126,7 @@ body {
           <div class="col-4">
             <button class="btn btn-success w-100">Enviar</button>
           </div>
-        </div>
-        <!-- <label  for="">Codigo</label>
-            <input type="text" name="Idlaboratorio" alt="">
-            <label  for="">Descripcion</label>
-            <input type="text" name="descripcionlab" id="descripcionlab">
-            <label  for="">fecha laboratorio</label>
-            <input type="text" name="fechalab" id="">
-            <label  for="">nombre del archivo</label>
-            <input type="text" name="nombrearchivo" id="">
-            
-    
-          <button>enviar</button> -->
+</div>
             
         </form>
       </div>
@@ -161,6 +146,7 @@ body {
           <th scope="col">Nombre Archivo</th>
           <th scope="col">Fecha Laboratorio</th>
           <th scope="col">Descripción</th>
+          <th scope="col">Acción</th>
         </tr>
       </thead>
       <?php
@@ -169,20 +155,13 @@ body {
       <tbody>
         <tr>
         <td scope="row"><?php echo $valor['Idlaboratorio']; ?> </td>
+        <td><?php echo $valor['nombrearchivo']; ?> </td>
         <td><?php echo $valor['fechalab']; ?> </td>
         <td><?php echo $valor['descripcionlab']; ?> </td>
-        <td><?php echo $valor['nombrearchivo']; ?> </td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td colspan="2">Larry the Bird</td>
-          <td>@twitter</td>
+        <td>
+          <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalLabUpdate"><i class="bi bi-pencil-square"></i></button>
+          <button class="btn btn-danger"><i class="bi bi-trash3-fill"></i></button>
+        </td>
         </tr>
       </tbody>
       <?php  
@@ -191,49 +170,7 @@ body {
     </table>
 
   </div>
-  <!-- <fieldset>
-    <legend>Read Examenes laboratorio</legend>
-    <table  >
-      <tr >
-        <th>Codigo</th>
-        <th>Descripcion</th>
-        <th>fecha laboratorio</th>
-        <th>nombre del archivo</th>
-      </tr>
 
-        <?php
-          while ($valor = $contenido -> fetch_assoc()) {
-        ?>
-
-      <tr>
-        <td><?php echo $valor['Idlaboratorio']; ?> </td>
-        <td><?php echo $valor['fechalab']; ?> </td>
-        <td><?php echo $valor['descripcionlab']; ?> </td>
-        <td><?php echo $valor['nombrearchivo']; ?> </td>
-        <td>
-
-          <form action="../../controlador/control.php" method="post">
-            <input type="hidden" name="exa" value="delete">
-            <input type="hidden" name="index" value="<?php echo $valor['Idlaboratorio']; ?>">
-            <button>borrar</button>
-          </form>
-
-          <form action="laboratorioExaUpdate.php" method="post">
-            <input type="hidden" name="exa" value="update">
-            <input type="hidden" name="index" value="<?php echo $valor['Idlaboratorio']; ?>">
-            <button>modificar</button>  
-          </form>
-          
-
-        </td>
-      </tr>
-
-        <?php  
-          }
-        ?>
-
-    </table>
-  </fieldset> -->
 </section>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
